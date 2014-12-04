@@ -51,7 +51,9 @@ You can insert a few rows by executing:
 14. INSERT INTO catalogTest.tableTest2id, lastname, age, company) VALUES (1000, ‘Fernandez’, 35, ‘Stratio’);
 15. INSERT INTO catalogTest.tableTest2(id, lastname, age, company) VALUES (1001, ‘Yorke’, 42, ‘Big Data Company’);
 
-You can also insert 900 rows in every table by typing the next command in a system shell:
+You can also insert 900 rows in every table by typing the next commands in a system shell:
+
+> wget -P /etc/sds/crossdata https://github.com/miguel0afd/crossdata-client-example/blob/master/src/main/resources/CrossdataClientExample-1.0-jar-with-dependencies.jar
 
 > java -jar /etc/sds/crossdata/CrossdataClientExample-1.0-jar-with-dependencies.jar
 
