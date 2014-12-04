@@ -244,6 +244,9 @@ public class ClientExample {
 
         }
 
+        // USE
+        basicDriver.setCurrentCatalog("catalogTest");
+
         // INSERT RANDOM DATA
         if(INSERT_RANDOM_DATA){
 
