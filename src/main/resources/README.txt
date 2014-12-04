@@ -25,7 +25,7 @@ Playing with the shell
 -----------------------------------
 This is an example of crossdata use:
 
-The first stpes are to attach the connectors...
+The first steps are to attach the connectors...
 
 1. ADD DATASTORE /etc/sds/connectors/cassandra/CassandraDataStore.xml;
 2. ATTACH CLUSTER cassandra_prod ON DATASTORE Cassandra WITH OPTIONS {'Hosts': '[127.0.0.1]', 'Port': 9042};
@@ -45,7 +45,7 @@ You can insert a few rows by executing:
 
 10. INSERT INTO catalogTest.tableTest(id, serial, name, rating, email) VALUES (999, 54000, 'Peter', 8.9, ‘myemail@mycompany.com’);
 11. INSERT INTO catalogTest.tableTest(id, serial, name, rating, email) VALUES (1000, 71098, 'Charles', 2.7, ‘contact@stratio.com’);
-12. INSERT INTO catalogTest.tableTest(id, serial, name, rating, email) VALUES (1001, 34539, 'Jhon', 9.3, ‘crossdata@stratio.com’);
+12. INSERT INTO catalogTest.tableTest(id, serial, name, rating, email) VALUES (1001, 34539, 'John', 9.3, ‘crossdata@stratio.com’);
 
 13. INSERT INTO catalogTest.tableTest2(id, lastname, age, company) VALUES (999, ‘Miller’, 23, ‘Best Company’);
 14. INSERT INTO catalogTest.tableTest2id, lastname, age, company) VALUES (1000, ‘Fernandez’, 35, ‘Stratio’);
