@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <properties>
-        <crossdata.version>0.1.1-RC2</crossdata.version>
+        <crossdata.version>0.1.1</crossdata.version>
     </properties>
 
     <dependencies>
