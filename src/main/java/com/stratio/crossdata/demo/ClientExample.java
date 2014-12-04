@@ -38,18 +38,13 @@ import com.stratio.crossdata.sh.utils.ConsoleUtils;
 public class ClientExample {
     public static void main(String[] args) {
 
-        //final String CASSANDRA_DATASTORE_MANIFEST = "/etc/sds/connectors/cassandra/CassandraDataStore.xml";
-        final String CASSANDRA_DATASTORE_MANIFEST =
-                "/home/mafernandez/workspace/stratio-connector-cassandra/src/main/resources/com/stratio/connector/cassandra/CassandraDataStore.xml";
-        //final String CASSANDRA_CONNECTOR_MANIFEST = "/etc/sds/connectors/cassandra/CassandraConnector.xml";
-        final String CASSANDRA_CONNECTOR_MANIFEST =
-                "/home/mafernandez/workspace/stratio-connector-cassandra/src/main/resources/com/stratio/connector/cassandra/CassandraConnector.xml";
+        final String CASSANDRA_DATASTORE_MANIFEST = "/etc/sds/connectors/cassandra/CassandraDataStore.xml";
+        final String CASSANDRA_CONNECTOR_MANIFEST = "/etc/sds/connectors/cassandra/CassandraConnector.xml";
 
         final String DEEP_CONNECTOR_MANIFEST = "/etc/sds/connectors/deep/DeepConnector.xml";
         final boolean ADD_CASSANDRA_CONNECTOR = true;
 
-        //final boolean ADD_DEEP_CONNECTOR = true;
-        final boolean ADD_DEEP_CONNECTOR = false;
+        final boolean ADD_DEEP_CONNECTOR = true;
 
         final boolean INSERT_RANDOM_DATA = false;
         final int NUMBER_OF_ROWS = 999;
