@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.stratio.crossdata:crossdata-shell:0.1.1-RC2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/stratio/crossdata/crossdata-shell/0.1.1-RC2/crossdata-shell-0.1.1-RC2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/stratio/crossdata/crossdata-shell/0.1.1-RC2/crossdata-shell-0.1.1-RC2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/stratio/crossdata/crossdata-shell/0.1.1-RC2/crossdata-shell-0.1.1-RC2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
