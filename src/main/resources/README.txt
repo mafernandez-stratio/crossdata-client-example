@@ -52,7 +52,8 @@ You can insert a few rows by executing:
 
 You can also insert 900 rows in every table by typing the next command in a system shell:
 
-> java -jar /etc/sds/crossdata/CrossdataClientExample.jar
+> cd /etc/sds/crossdata/
+> java -jar CrossdataClientExample.jar
 
 Now, we can see some results:
 
@@ -60,4 +61,10 @@ Now, we can see some results:
 18. SELECT id, age FROM catalogTest.tableTest2;
 
 19. SELECT name, age FROM catalogtest.tabletest INNER JOIN catalogtest.tabletest2 ON tabletest.id=tabletest2.id;
+
+Let's create a full text index:
+
+20. CREATE FULL_TEXT INDEX myIndex ON tableTest(email);
+
+21. SELECT * FROM tabletest WHERE email MATCH '*yahoo*';
 
