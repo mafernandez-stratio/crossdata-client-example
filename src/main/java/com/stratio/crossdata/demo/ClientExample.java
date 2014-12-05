@@ -42,19 +42,15 @@ public class ClientExample {
     public static void main(String[] args) {
 
         final String CASSANDRA_DATASTORE_MANIFEST = "/etc/sds/connectors/cassandra/CassandraDataStore.xml";
-        //final String CASSANDRA_DATASTORE_MANIFEST = "/home/mafernandez/workspace/stratio-connector-cassandra/src/main/resources/com/stratio/connector/cassandra/CassandraDataStore.xml;";
 
         final String CASSANDRA_CONNECTOR_MANIFEST = "/etc/sds/connectors/cassandra/CassandraConnector.xml";
-        //final String CASSANDRA_CONNECTOR_MANIFEST = "/home/mafernandez/workspace/stratio-connector-cassandra/src/main/resources/com/stratio/connector/cassandra/CassandraConnector.xml";
 
         final String DEEP_CONNECTOR_MANIFEST = "/etc/sds/connectors/deep/DeepConnector.xml";
         final boolean ADD_CASSANDRA_CONNECTOR = true;
 
         final boolean ADD_DEEP_CONNECTOR = true;
-        //final boolean ADD_DEEP_CONNECTOR = false;
 
         final boolean INSERT_RANDOM_DATA = false;
-        //final boolean INSERT_RANDOM_DATA = true;
 
         final int NUMBER_OF_ROWS = 899;
         final String INSERTS_FILE = "demo.xdql";
@@ -62,7 +58,6 @@ public class ClientExample {
         final boolean ONLY_INSERT = true;
 
         final boolean WRITE_TO_FILE = false;
-        //final boolean WRITE_TO_FILE = true;
 
         final String FILE_OUPUT = "demo.xdql";
 
@@ -318,11 +313,13 @@ public class ClientExample {
             try {
                 InputStream scriptFile = ClassLoader.getSystemClassLoader().getResourceAsStream(INSERTS_FILE);
                 input = new BufferedReader(new InputStreamReader(scriptFile));
+                int count = 1;
                 while ((query = input.readLine()) != null) {
                     query = query.trim();
                     if (query.length() > 0 && !query.startsWith("#")) {
                         basicDriver.executeQuery(query);
-                        System.out.println("Row inserted.");
+                        System.out.println(count + " rows inserted.");
+                        count++;
                     }
                 }
             } catch (Exception e) {
