@@ -3,19 +3,19 @@ README
 
 First steps to initialize services
 ------------------------------------
-0. sudo su -
+> sudo su -
 
 #Start crossdata
-1. cd /etc/init.d
-2. service crossdata start
+> cd /etc/init.d
+> service crossdata start
 
 #Start Connectors
-3. service connector_cassandra start
-4. service connector_deep start
+> service connector_cassandra start
+> service connector_deep start
 
 #At this point, we have all that we need so now we start crossdata shell
-5. cd /opt/sds/crossdata/bin
-6. ./crossdata-sh
+> cd /opt/sds/crossdata/bin
+> ./crossdata-sh
 
 Playing with the shell
 -----------------------------------
@@ -40,7 +40,7 @@ Now we can operate as usual...
 You can insert a few rows by executing:
 
 11. INSERT INTO catalogTest.tableTest(id, serial, name, rating, email) VALUES (999, 54000, 'Peter', 8.9,
-'myemail@mycompany.com');
+'myemail@yahoo.com');
 12. INSERT INTO catalogTest.tableTest(id, serial, name, rating, email) VALUES (1000, 71098, 'Charles', 2.7,
 'contact@stratio.com');
 13. INSERT INTO catalogTest.tableTest(id, serial, name, rating, email) VALUES (1001, 34539, 'John', 9.3,
@@ -52,19 +52,25 @@ You can insert a few rows by executing:
 
 You can also insert 900 rows in every table by typing the next command in a system shell:
 
+17. exit
+
 > cd /etc/sds/crossdata/
 > java -jar CrossdataClientExample.jar
 
-Now, we can see some results:
+Now, we can come back to the crossdata shell and see some results:
 
-17. SELECT * FROM catalogTest.tableTest;
-18. SELECT id, age FROM catalogTest.tableTest2;
+> cd /opt/sds/crossdata/bin
+> ./crossdata-sh
 
-19. SELECT name, age FROM catalogtest.tabletest INNER JOIN catalogtest.tabletest2 ON tabletest.id=tabletest2.id;
+18. USE catalogTest;
+19. SELECT * FROM catalogTest.tableTest;
+20. SELECT id, age FROM catalogTest.tableTest2;
+
+21. SELECT name, age FROM catalogtest.tabletest INNER JOIN catalogtest.tabletest2 ON tabletest.id=tabletest2.id;
 
 Let's create a full text index:
 
-20. CREATE FULL_TEXT INDEX myIndex ON tableTest(email);
+22. CREATE FULL_TEXT INDEX myIndex ON tableTest(email);
 
-21. SELECT * FROM tabletest WHERE email MATCH '*yahoo*';
+23. SELECT * FROM tabletest WHERE email MATCH '*yahoo*';
 
