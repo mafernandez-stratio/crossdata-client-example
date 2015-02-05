@@ -31,25 +31,23 @@ import org.jfairy.Fairy;
 import org.jfairy.producer.BaseProducer;
 import org.jfairy.producer.person.Person;
 
-import com.stratio.crossdata.common.exceptions.ConnectionException;
-import com.stratio.crossdata.common.exceptions.ManifestException;
 import com.stratio.crossdata.common.manifest.CrossdataManifest;
 import com.stratio.crossdata.common.result.Result;
 import com.stratio.crossdata.driver.BasicDriver;
-import com.stratio.crossdata.sh.utils.ConsoleUtils;
+import com.stratio.crossdata.driver.utils.ManifestUtils;
 
 public class ClientExample {
     public static void main(String[] args) {
 
+        // rm src/main/resources/CrossdataClientExample.jar
+        // cp target/CrossdataClientExample-1.0-jar-with-dependencies.jar src/main/resources/CrossdataClientExample.jar
+
         final String CASSANDRA_DATASTORE_MANIFEST = "/etc/sds/connectors/cassandra/CassandraDataStore.xml";
-
         final String CASSANDRA_CONNECTOR_MANIFEST = "/etc/sds/connectors/cassandra/CassandraConnector.xml";
-
         final String DEEP_CONNECTOR_MANIFEST = "/etc/sds/connectors/deep/DeepConnector.xml";
+
         final boolean ADD_CASSANDRA_CONNECTOR = true;
-
         final boolean ADD_DEEP_CONNECTOR = true;
-
         final boolean INSERT_RANDOM_DATA = false;
 
         final int NUMBER_OF_ROWS = 899;
@@ -68,8 +66,8 @@ public class ClientExample {
         Result result = null;
         try {
             result = basicDriver.connect(username);
-        } catch (ConnectionException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         assert result != null;
         System.out.println("Connected to Crossdata Server");
@@ -85,21 +83,19 @@ public class ClientExample {
             // ADD CASSANDRA DATASTORE MANIFEST
             CrossdataManifest manifest = null;
             try {
-                manifest = ConsoleUtils.parseFromXmlToManifest(
+                manifest = ManifestUtils.parseFromXmlToManifest(
                         CrossdataManifest.TYPE_DATASTORE,
                         CASSANDRA_DATASTORE_MANIFEST);
-            } catch (ManifestException e) {
-                e.printStackTrace();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
             assert manifest != null;
 
             result = null;
             try {
                 result = basicDriver.addManifest(manifest);
-            } catch (ManifestException e) {
-                e.printStackTrace();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
             assert result != null;
             System.out.println("Datastore manifest added.");
@@ -119,21 +115,19 @@ public class ClientExample {
             if(ADD_CASSANDRA_CONNECTOR){
                 manifest = null;
                 try {
-                    manifest = ConsoleUtils.parseFromXmlToManifest(
+                    manifest = ManifestUtils.parseFromXmlToManifest(
                             CrossdataManifest.TYPE_CONNECTOR,
                             CASSANDRA_CONNECTOR_MANIFEST);
-                } catch (ManifestException e) {
-                    e.printStackTrace();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 assert manifest != null;
 
                 result = null;
                 try {
                     result = basicDriver.addManifest(manifest);
-                } catch (ManifestException e) {
-                    e.printStackTrace();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 assert result != null;
                 System.out.println("Stratio Cassandra Connector manifest added.");
@@ -143,13 +137,11 @@ public class ClientExample {
             if(ADD_DEEP_CONNECTOR){
                 manifest = null;
                 try {
-                    manifest = ConsoleUtils.parseFromXmlToManifest(
+                    manifest = ManifestUtils.parseFromXmlToManifest(
                             CrossdataManifest.TYPE_CONNECTOR,
                             DEEP_CONNECTOR_MANIFEST);
-                } catch (ManifestException e) {
-                    e.printStackTrace();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 assert manifest != null;
                 System.out.println("Stratio Deep Connector manifest added.");
@@ -157,8 +149,8 @@ public class ClientExample {
                 result = null;
                 try {
                     result = basicDriver.addManifest(manifest);
-                } catch (ManifestException e) {
-                    e.printStackTrace();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 assert result != null;
                 System.out.println("Stratio Cassandra Connector manifest added.");
