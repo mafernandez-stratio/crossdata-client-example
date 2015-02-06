@@ -40,6 +40,7 @@ public class ClientExample {
     public static void main(String[] args) {
 
         // rm src/main/resources/CrossdataClientExample.jar
+        // mvn clean install
         // cp target/CrossdataClientExample-1.0-jar-with-dependencies.jar src/main/resources/CrossdataClientExample.jar
 
         final String CASSANDRA_DATASTORE_MANIFEST = "/etc/sds/connectors/cassandra/CassandraDataStore.xml";
