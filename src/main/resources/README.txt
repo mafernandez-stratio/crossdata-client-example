@@ -28,7 +28,7 @@ The first steps are to attach the connectors...
 3. ADD CONNECTOR /etc/sds/connectors/cassandra/CassandraConnector.xml;
 4. ADD CONNECTOR /etc/sds/connectors/deep/DeepConnector.xml;
 5. ATTACH CONNECTOR CassandraConnector TO cassandra_prod WITH OPTIONS {'DefaultLimit': '1000'};
-6. ATTACH CONNECTOR DeepConnector TO cassandra_prod WITH OPTIONS {};
+6. ATTACH CONNECTOR DeepConnector TO cassandra_prod WITH OPTIONS {'DefaultLimit': '1000'};
 
 Now we can operate as usual...
 
@@ -47,7 +47,7 @@ You can insert a few rows by executing:
 'crossdata@stratio.com');
 
 14. INSERT INTO catalogTest.tableTest2(id, lastname, age, company) VALUES (999, 'Miller', 23, 'Best Company');
-15. INSERT INTO catalogTest.tableTest2id, lastname, age, company) VALUES (1000, 'Fernandez', 35, 'Stratio');
+15. INSERT INTO catalogTest.tableTest2(id, lastname, age, company) VALUES (1000, 'Fernandez', 35, 'Stratio');
 16. INSERT INTO catalogTest.tableTest2(id, lastname, age, company) VALUES (1001, 'Yorke', 42, 'Big Data Company');
 
 You can also insert 900 rows in every table by typing the next command in a system shell:
@@ -64,13 +64,15 @@ Now, we can come back to the crossdata shell and see some results:
 
 18. USE catalogTest;
 19. SELECT * FROM catalogTest.tableTest;
-20. SELECT id, age FROM catalogTest.tableTest2;
+20. SELECT COUNT(*) FROM catalogTest.tableTest;
+21. SELECT now() FROM catalogTest.tableTest;
+22. SELECT id, age FROM catalogTest.tableTest2;
 
-21. SELECT name, age FROM catalogtest.tabletest INNER JOIN catalogtest.tabletest2 ON tabletest.id=tabletest2.id;
+23. SELECT name, age FROM catalogtest.tabletest INNER JOIN catalogtest.tabletest2 ON tabletest.id=tabletest2.id;
 
 Let's create a full text index:
 
-22. CREATE FULL_TEXT INDEX myIndex ON tableTest(email);
+24. CREATE FULL_TEXT INDEX myIndex ON tableTest(email);
 
-23. SELECT * FROM tabletest WHERE email MATCH '*yahoo*';
+25. SELECT * FROM tabletest WHERE email MATCH '*yahoo*';
 
