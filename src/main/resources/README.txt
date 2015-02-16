@@ -64,7 +64,7 @@ Now, we can come back to the crossdata shell and see some results:
 
 18. USE catalogTest;
 19. SELECT * FROM catalogTest.tableTest;
-20. SELECT COUNT(*) FROM catalogTest.tableTest;
+20. SELECT count(*) FROM catalogTest.tableTest;
 21. SELECT now() FROM catalogTest.tableTest;
 22. SELECT id, age FROM catalogTest.tableTest2;
 
