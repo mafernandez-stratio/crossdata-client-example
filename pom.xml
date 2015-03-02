@@ -6,10 +6,12 @@
 
     <groupId>com.stratio.crossdata</groupId>
     <artifactId>CrossdataClientExample</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <crossdata.version>0.2.0-config</crossdata.version>
+        <crossdata.version>0.2.0-001</crossdata.version>
+        <jfairy.version>0.3.0</jfairy.version>
+        <slf4j.version>1.7.10</slf4j.version>
     </properties>
 
     <dependencies>
@@ -24,19 +26,19 @@
             <version>${crossdata.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.stratio.crossdata</groupId>
-            <artifactId>crossdata-shell</artifactId>
-            <version>${crossdata.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.jfairy</groupId>
             <artifactId>jfairy</artifactId>
             <version>0.3.0</version>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
             <version>3.0</version>
+        </dependency-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
 
